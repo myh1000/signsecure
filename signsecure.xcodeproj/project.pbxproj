@@ -12,6 +12,12 @@
 		0006226B1CD4C6DA00EB022B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006226A1CD4C6DA00EB022B /* ViewController.m */; };
 		0006226D1CD4C6DA00EB022B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0006226C1CD4C6DA00EB022B /* Assets.xcassets */; };
 		000622701CD4C6DA00EB022B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0006226E1CD4C6DA00EB022B /* Main.storyboard */; };
+		00FF65F21CD505AB00913DB4 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F11CD505AB00913DB4 /* Firebase.framework */; };
+		00FF65F41CD505C200913DB4 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F31CD505C200913DB4 /* libicucore.tbd */; };
+		00FF65F61CD505C800913DB4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F51CD505C800913DB4 /* libc++.tbd */; };
+		00FF65F81CD505CE00913DB4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F71CD505CE00913DB4 /* CFNetwork.framework */; };
+		00FF65FA1CD505D500913DB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F91CD505D500913DB4 /* Security.framework */; };
+		00FF65FC1CD5061500913DB4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65FB1CD5061500913DB4 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		0006226C1CD4C6DA00EB022B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0006226F1CD4C6DA00EB022B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		000622711CD4C6DA00EB022B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00FF65F11CD505AB00913DB4 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = signsecure/Firebase.framework; sourceTree = "<group>"; };
+		00FF65F31CD505C200913DB4 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		00FF65F51CD505C800913DB4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		00FF65F71CD505CE00913DB4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		00FF65F91CD505D500913DB4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		00FF65FB1CD5061500913DB4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00FF65FC1CD5061500913DB4 /* SystemConfiguration.framework in Frameworks */,
+				00FF65FA1CD505D500913DB4 /* Security.framework in Frameworks */,
+				00FF65F81CD505CE00913DB4 /* CFNetwork.framework in Frameworks */,
+				00FF65F61CD505C800913DB4 /* libc++.tbd in Frameworks */,
+				00FF65F41CD505C200913DB4 /* libicucore.tbd in Frameworks */,
+				00FF65F21CD505AB00913DB4 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +81,7 @@
 				0006226C1CD4C6DA00EB022B /* Assets.xcassets */,
 				0006226E1CD4C6DA00EB022B /* Main.storyboard */,
 				000622711CD4C6DA00EB022B /* Info.plist */,
+				00FF65FD1CD5062000913DB4 /* Frameworks */,
 				000622661CD4C6DA00EB022B /* Supporting Files */,
 			);
 			path = signsecure;
@@ -74,6 +93,20 @@
 				000622671CD4C6DA00EB022B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00FF65FD1CD5062000913DB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00FF65F11CD505AB00913DB4 /* Firebase.framework */,
+				00FF65FB1CD5061500913DB4 /* SystemConfiguration.framework */,
+				00FF65F91CD505D500913DB4 /* Security.framework */,
+				00FF65F71CD505CE00913DB4 /* CFNetwork.framework */,
+				00FF65F51CD505C800913DB4 /* libc++.tbd */,
+				00FF65F31CD505C200913DB4 /* libicucore.tbd */,
+			);
+			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +284,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/signsecure",
+				);
 				INFOPLIST_FILE = signsecure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.signsecure.signsecure;
@@ -263,6 +300,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/signsecure",
+				);
 				INFOPLIST_FILE = signsecure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.signsecure.signsecure;
@@ -289,6 +330,7 @@
 				000622761CD4C6DA00EB022B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
