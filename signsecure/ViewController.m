@@ -22,11 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getStatus];
     self.ref = [[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"];
-    [self.statusField sizeToFit];
-   
-    // Do any additional setup after loading the view.
+    [self getStatus];
+        // Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear {
@@ -48,7 +46,7 @@
     if (ref.authData) {
         // user authenticated
         NSLog(@"%@", ref.authData);
-        if (signature thing) {
+        if (1==2) {
             self.statusField.stringValue = [@"Status: " stringByAppendingString:@"Logged In (2 of 2)"];
 
         }
@@ -58,6 +56,7 @@
     } else {
        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In (0 of 2)"];
     }
+    [self.statusField sizeToFit];
 }
 
 
