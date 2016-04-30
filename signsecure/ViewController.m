@@ -24,12 +24,12 @@
     [super viewDidLoad];
     self.ref = [[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"];
     [self getStatus];
+    [self.username becomeFirstResponder];
         // Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear {
     [super viewDidAppear];
-    [self.username becomeFirstResponder];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -56,7 +56,6 @@
     } else {
        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In (0 of 2)"];
     }
-    [self.statusField sizeToFit];
 }
 
 

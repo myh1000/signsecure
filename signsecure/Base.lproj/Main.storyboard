@@ -672,17 +672,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="750"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="neR-27-9YG">
-                                <rect key="frame" x="429" y="324" width="143" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="139" id="Gcz-s0-Faf"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Status: Not Logged In" id="ZNg-Lz-SIL">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CBy-Fz-2ox">
                                 <rect key="frame" x="412" y="404" width="177" height="22"/>
                                 <constraints>
@@ -723,17 +712,28 @@ DQ
                                     <action selector="submitPressed:" target="XfG-lQ-9wD" id="UNh-On-J0U"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="neR-27-9YG">
+                                <rect key="frame" x="399" y="329" width="203" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="199" id="Gcz-s0-Faf"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Status: Not Logged In (0 of 2)" id="ZNg-Lz-SIL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="CBy-Fz-2ox" firstAttribute="leading" secondItem="8oH-ty-eiE" secondAttribute="leading" id="ChP-II-d4t"/>
-                            <constraint firstAttribute="bottom" secondItem="neR-27-9YG" secondAttribute="bottom" constant="324" id="Gwt-HE-Bpv"/>
+                            <constraint firstAttribute="bottom" secondItem="neR-27-9YG" secondAttribute="bottom" constant="329" id="Gwt-HE-Bpv"/>
+                            <constraint firstItem="neR-27-9YG" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="KSz-Uc-dbG"/>
                             <constraint firstItem="CBy-Fz-2ox" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="MLx-Wm-CD3"/>
                             <constraint firstItem="OhN-UI-lHc" firstAttribute="leading" secondItem="8oH-ty-eiE" secondAttribute="trailing" constant="8" id="aBL-ug-Ni5"/>
                             <constraint firstItem="CBy-Fz-2ox" firstAttribute="trailing" secondItem="8oH-ty-eiE" secondAttribute="trailing" id="lsH-GA-mjp"/>
-                            <constraint firstItem="neR-27-9YG" firstAttribute="top" secondItem="8oH-ty-eiE" secondAttribute="bottom" constant="31" id="qUa-Fp-egm"/>
+                            <constraint firstItem="neR-27-9YG" firstAttribute="top" secondItem="8oH-ty-eiE" secondAttribute="bottom" constant="26" id="qUa-Fp-egm"/>
                             <constraint firstItem="8oH-ty-eiE" firstAttribute="top" secondItem="CBy-Fz-2ox" secondAttribute="bottom" constant="10" symbolic="YES" id="yiB-6b-tqu"/>
                             <constraint firstItem="8oH-ty-eiE" firstAttribute="bottom" secondItem="OhN-UI-lHc" secondAttribute="bottom" id="ylU-PR-O9o"/>
-                            <constraint firstItem="8oH-ty-eiE" firstAttribute="centerX" secondItem="neR-27-9YG" secondAttribute="centerX" id="ytF-YP-GMM"/>
                         </constraints>
                     </view>
                     <connections>
