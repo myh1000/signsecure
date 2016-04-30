@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import <Firebase/Firebase.h>
+#import <QuartzCore/QuartzCore.h>
+
 @interface ViewController ()
 
 @property (strong, nonatomic) Firebase* ref;
@@ -30,6 +32,12 @@
 
 - (void)viewDidAppear {
     [super viewDidAppear];
+}
+
+- (void)viewDidLayout{
+    [super viewDidLayout];
+    self.view.layer.backgroundColor = [NSColor colorWithRed:0.0 green:0.8 blue:0.8 alpha:1.0].CGColor;
+    self.statusField.textColor = [NSColor whiteColor];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
