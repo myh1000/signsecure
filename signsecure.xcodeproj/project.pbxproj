@@ -12,6 +12,7 @@
 		0006226B1CD4C6DA00EB022B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006226A1CD4C6DA00EB022B /* ViewController.m */; };
 		0006226D1CD4C6DA00EB022B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0006226C1CD4C6DA00EB022B /* Assets.xcassets */; };
 		000622701CD4C6DA00EB022B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0006226E1CD4C6DA00EB022B /* Main.storyboard */; };
+		00FB2DD91CD561EA002C5214 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FB2DD81CD561EA002C5214 /* background.png */; };
 		00FF65F21CD505AB00913DB4 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F11CD505AB00913DB4 /* Firebase.framework */; };
 		00FF65F41CD505C200913DB4 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F31CD505C200913DB4 /* libicucore.tbd */; };
 		00FF65F61CD505C800913DB4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F51CD505C800913DB4 /* libc++.tbd */; };
@@ -30,6 +31,7 @@
 		0006226C1CD4C6DA00EB022B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0006226F1CD4C6DA00EB022B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		000622711CD4C6DA00EB022B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00FB2DD81CD561EA002C5214 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		00FF65F11CD505AB00913DB4 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = signsecure/Firebase.framework; sourceTree = "<group>"; };
 		00FF65F31CD505C200913DB4 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		00FF65F51CD505C800913DB4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -74,6 +76,7 @@
 		000622621CD4C6DA00EB022B /* signsecure */ = {
 			isa = PBXGroup;
 			children = (
+				00FB2DD81CD561EA002C5214 /* background.png */,
 				000622631CD4C6DA00EB022B /* AppDelegate.h */,
 				000622641CD4C6DA00EB022B /* AppDelegate.m */,
 				000622691CD4C6DA00EB022B /* ViewController.h */,
@@ -143,7 +146,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0006225B1CD4C6DA00EB022B /* Build configuration list for PBXProject "signsecure" */;
+			buildConfigurationList = 0006225B1CD4C6DA00EB022B /* Build configuration list for PBXProject "SignSecure" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0006226D1CD4C6DA00EB022B /* Assets.xcassets in Resources */,
+				00FB2DD91CD561EA002C5214 /* background.png in Resources */,
 				000622701CD4C6DA00EB022B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +318,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0006225B1CD4C6DA00EB022B /* Build configuration list for PBXProject "signsecure" */ = {
+		0006225B1CD4C6DA00EB022B /* Build configuration list for PBXProject "SignSecure" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				000622721CD4C6DA00EB022B /* Debug */,

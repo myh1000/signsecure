@@ -14,6 +14,7 @@
 @property (weak) IBOutlet NSTextField *username;
 @property (weak) IBOutlet NSSecureTextField *password;
 @property (weak) IBOutlet NSTextField *largeText;
+@property (weak) IBOutlet NSButton *submit;
 
 @end
 

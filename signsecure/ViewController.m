@@ -23,6 +23,7 @@
 @synthesize statusField;
 @synthesize username;
 @synthesize password;
+@synthesize submit;
 @synthesize largeText;
 @synthesize ref;
 
@@ -30,23 +31,26 @@
     [super viewDidLoad];
     
     data = [[NSMutableData alloc]init];
-
-    
     self.ref = [[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"];
+    [ref unauth];
     [self getStatus];
         // Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear {
     [super viewDidAppear];
+    [self.submit setKeyEquivalent:@"\r"];
+    [self getStatus];
 }
 
 - (void)viewDidLayout{
     [super viewDidLayout];
-    self.view.layer.backgroundColor = [NSColor colorWithRed:0.0 green:0.8 blue:0.8 alpha:1.0].CGColor;
-    self.statusField.textColor = [NSColor whiteColor];
+//    self.view.layer.backgroundColor = [NSColor colorWithRed:0.0 green:0.8 blue:0.8 alpha:1.0].CGColor;
+    self.view.layer.backgroundColor = [[NSColor colorWithPatternImage:[NSImage imageNamed:@"background.png"]]CGColor];
     [self.username becomeFirstResponder];
+    self.largeText.alphaValue = 0.0;
 }
+
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
@@ -66,7 +70,6 @@
     } else {
        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In (0 of 2)"];
     }
-    self.largeText.stringValue = @"Sine Secure";
 }
 
 
@@ -77,6 +80,7 @@
     [ref authUser:email password:[self.password stringValue] withCompletionBlock:^(NSError *error, FAuthData *authData) {
     if (error) {
         NSLog(@"err log");
+        [self shakeAnimation];
     } else {
         [self getStatus];
         if([email  isEqual: @"myh1000@gmail.com"])
@@ -86,30 +90,30 @@
             
             [self send_url_encoded_http_post_request:vars];
         }
-        else if([email  isEqual: @"kevinfrans2@gmail.com"])
-        {
-            NSMutableDictionary *vars = [NSMutableDictionary new];
-            [vars setObject:@"Kevin_Frans" forKey:@"username"];
-            
-            [self send_url_encoded_http_post_request:vars];
-
-        }
-        else if([email  isEqual: @"myh1000@gmail.com"])
-        {
-            NSMutableDictionary *vars = [NSMutableDictionary new];
-            [vars setObject:@"Kevin_Fang" forKey:@"username"];
-            
-            [self send_url_encoded_http_post_request:vars];
-
-        }
-        else if([email  isEqual: @"myh1000@gmail.com"])
-        {
-            NSMutableDictionary *vars = [NSMutableDictionary new];
-            [vars setObject:@"Lilia_Tang" forKey:@"username"];
-            
-            [self send_url_encoded_http_post_request:vars];
-
-        }
+//        else if([email  isEqual: @"kevinfrans2@gmail.com"])
+//        {
+//            NSMutableDictionary *vars = [NSMutableDictionary new];
+//            [vars setObject:@"Kevin_Frans" forKey:@"username"];
+//            
+//            [self send_url_encoded_http_post_request:vars];
+//
+//        }
+//        else if([email  isEqual: @"myh1000@gmail.com"])
+//        {
+//            NSMutableDictionary *vars = [NSMutableDictionary new];
+//            [vars setObject:@"Kevin_Fang" forKey:@"username"];
+//            
+//            [self send_url_encoded_http_post_request:vars];
+//
+//        }
+//        else if([email  isEqual: @"myh1000@gmail.com"])
+//        {
+//            NSMutableDictionary *vars = [NSMutableDictionary new];
+//            [vars setObject:@"Lilia_Tang" forKey:@"username"];
+//            
+//            [self send_url_encoded_http_post_request:vars];
+//
+//        }
     }
     }];
 }
@@ -135,7 +139,7 @@
 }
 
 - (void)send_url_encoded_http_post_request:(NSDictionary *)vars {
-    NSString *url_str = @"http://e02e18e8.ngrok.io/loggedin";
+    NSString *url_str = @"http://7ac770f8.ngrok.io/loggedin";
     NSMutableString *vars_str = [NSMutableString new];
     if (vars != nil && vars.count > 0) {
         BOOL first = YES;
@@ -166,7 +170,7 @@
 {
     [data setLength:0];
     NSHTTPURLResponse *resp= (NSHTTPURLResponse *) response;
-    NSLog(@"got responce with status @push %d",[resp statusCode]);
+    NSLog(@"got responce with status @push %ld",(long)[resp statusCode]);
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d
@@ -191,13 +195,90 @@
         });
         
     }
-    else
+    else if([responseText isEqualToString:@"true"])
     {
         NSLog(@"im in boys");
         self.statusField.stringValue = [@"Status: " stringByAppendingString:@"Logged In (2 of 2)"];
-        self.largeText.stringValue = @"Welcome";
+        [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+            [context setDuration:2.0];
+            self.largeText.alphaValue = 1.0;
+        } completionHandler:^{
+            //Completion Code
+        }];
+        self.submit.enabled = NO;
+        double delayInSeconds = 2.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"website"]];
+        NSLog(@"open secure.html");
+        });
     }
+    else {
+        [self shakeAnimation];
+        double delayInSeconds = 0.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            NSLog(@"resent");
+            [self submitLogin];
+        });
+    }
+
+}
+
+-(void)shakeAnimation {
+    NSRect textFieldFrame = [self.password frame];
     
+    CGFloat centerX = textFieldFrame.origin.x;
+    CGFloat centerY = textFieldFrame.origin.y;
+    
+    NSPoint origin = NSMakePoint(centerX, centerY);
+    NSPoint one = NSMakePoint(centerX-5, centerY);
+    NSPoint two = NSMakePoint(centerX+5, centerY);
+    
+    
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setCompletionHandler:^{
+        
+        [NSAnimationContext beginGrouping];
+        [[NSAnimationContext currentContext] setCompletionHandler:^{
+            
+            
+            [NSAnimationContext beginGrouping];
+            [[NSAnimationContext currentContext] setCompletionHandler:^{
+                
+                [NSAnimationContext beginGrouping];
+                [[NSAnimationContext currentContext] setCompletionHandler:^{
+                    
+                    [[NSAnimationContext currentContext] setDuration:0.0175];
+                    [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
+                    [[self.password animator] setFrameOrigin:origin];
+                    
+                }];
+                
+                [[NSAnimationContext currentContext] setDuration:0.0175];
+                [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
+                [[self.password animator] setFrameOrigin:two];
+                [NSAnimationContext endGrouping];
+                
+            }];
+            
+            [[NSAnimationContext currentContext] setDuration:0.0175];
+            [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
+            [[self.password animator] setFrameOrigin:one];
+            [NSAnimationContext endGrouping];
+        }];
+        
+        [[NSAnimationContext currentContext] setDuration:0.0175];
+        [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
+        [[self.password animator] setFrameOrigin:two];
+        [NSAnimationContext endGrouping];
+        
+    }];
+    
+    [[NSAnimationContext currentContext] setDuration:0.0175];
+    [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
+    [[self.password animator] setFrameOrigin:one];
+    [NSAnimationContext endGrouping];
 }
 
 

@@ -36,7 +36,7 @@
 		<false/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>e02e18e8.ngrok.io</key>
+			<key>7ac770f8.ngrok.io</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
