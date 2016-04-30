@@ -9,11 +9,21 @@
 #import "ViewController.h"
 
 @implementation ViewController
+@synthesize statusField;
+@synthesize username;
+@synthesize password;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self getStatus];
+    [self.statusField sizeToFit];
+   
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear {
+    [super viewDidAppear];
+    [self.username becomeFirstResponder];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -21,5 +31,20 @@
 
     // Update the view, if already loaded.
 }
+
+- (IBAction)submitPressed:(id)sender {
+    [self submitLogin];
+}
+
+- (void)getStatus {
+    self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In"];
+}
+
+
+- (void) submitLogin {
+    NSLog(@"call");
+    [self getStatus];
+}
+
 
 @end

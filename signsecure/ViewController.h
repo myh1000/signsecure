@@ -10,6 +10,9 @@
 
 @interface ViewController : NSViewController
 
+@property (weak) IBOutlet NSTextField *statusField;
+@property (weak) IBOutlet NSTextField *username;
+@property (weak) IBOutlet NSSecureTextField *password;
 
 @end
 
