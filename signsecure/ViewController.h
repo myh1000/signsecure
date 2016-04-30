@@ -13,6 +13,7 @@
 @property (weak) IBOutlet NSTextField *statusField;
 @property (weak) IBOutlet NSTextField *username;
 @property (weak) IBOutlet NSSecureTextField *password;
+@property (weak) IBOutlet NSTextField *largeText;
 
 @end
 

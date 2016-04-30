@@ -751,6 +751,7 @@ DQ
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="largeText" destination="mLc-nD-DCv" id="H4h-d2-ALu"/>
                         <outlet property="password" destination="8oH-ty-eiE" id="BWT-A6-0CD"/>
                         <outlet property="statusField" destination="neR-27-9YG" id="Wei-fT-zyU"/>
                         <outlet property="username" destination="CBy-Fz-2ox" id="Dxy-M3-tYz"/>

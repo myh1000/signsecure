@@ -23,6 +23,7 @@
 @synthesize statusField;
 @synthesize username;
 @synthesize password;
+@synthesize largeText;
 @synthesize ref;
 
 - (void)viewDidLoad {
@@ -65,6 +66,7 @@
     } else {
        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In (0 of 2)"];
     }
+    self.largeText.stringValue = @"Sine Secure";
 }
 
 
@@ -193,6 +195,7 @@
     {
         NSLog(@"im in boys");
         self.statusField.stringValue = [@"Status: " stringByAppendingString:@"Logged In (2 of 2)"];
+        self.largeText.stringValue = @"Welcome";
     }
     
 }
