@@ -48,9 +48,15 @@
     if (ref.authData) {
         // user authenticated
         NSLog(@"%@", ref.authData);
-        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"Logged In"];
+        if (signature thing) {
+            self.statusField.stringValue = [@"Status: " stringByAppendingString:@"Logged In (2 of 2)"];
+
+        }
+        else {
+            self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In (1 of 2)"];
+        }
     } else {
-       self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In"];
+       self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In (0 of 2)"];
     }
 }
 
