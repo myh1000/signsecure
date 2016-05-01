@@ -28,10 +28,11 @@
 @synthesize submit;
 @synthesize largeText;
 @synthesize ref;
+@synthesize signInText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.signInText.alphaValue = 0.0;
     data = [[NSMutableData alloc]init];
     self.ref = [[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"];
     [ref unauth];
@@ -78,9 +79,9 @@
     if (ref.authData) {
         // user authenticated
         NSLog(@"%@", ref.authData);
-        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In (1 of 2)"];
+        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not logged in (1 of 2)"];
     } else {
-       self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not Logged In (0 of 2)"];
+       self.statusField.stringValue = [@"Status: " stringByAppendingString:@"not logged in (0 of 2)"];
     }
 }
 
@@ -96,41 +97,56 @@
         }
         else {
         NSLog(@"err log");
-        [self shakeAnimation];
+            [self shakeAnimation:@"password"];
         }
     } else {
         [self getStatus];
-        if([email  isEqual: @"myh1000@gmail.com"])
-        {
-            NSMutableDictionary *vars = [NSMutableDictionary new];
-            [vars setObject:@"Michael_Huang" forKey:@"username"];
-            
-            [self send_url_encoded_http_post_request:vars];
-        }
-//        else if([email  isEqual: @"kevinfrans2@gmail.com"])
-//        {
-//            NSMutableDictionary *vars = [NSMutableDictionary new];
-//            [vars setObject:@"Kevin_Frans" forKey:@"username"];
-//            
-//            [self send_url_encoded_http_post_request:vars];
-//
-//        }
-//        else if([email  isEqual: @"myh1000@gmail.com"])
-//        {
-//            NSMutableDictionary *vars = [NSMutableDictionary new];
-//            [vars setObject:@"Kevin_Fang" forKey:@"username"];
-//            
-//            [self send_url_encoded_http_post_request:vars];
-//
-//        }
-//        else if([email  isEqual: @"myh1000@gmail.com"])
-//        {
-//            NSMutableDictionary *vars = [NSMutableDictionary new];
-//            [vars setObject:@"Lilia_Tang" forKey:@"username"];
-//            
-//            [self send_url_encoded_http_post_request:vars];
-//
-//        }
+        [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+            [context setDuration:.8];
+            self.username.animator.alphaValue = 0.0;
+            self.password.animator.alphaValue = 0.0;
+            self.submit.animator.alphaValue = 0.0;
+        } completionHandler:^(){
+            [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+                [context setDuration:1.2];
+                self.signInText.animator.alphaValue = 1.0;
+            } completionHandler:nil];
+        }];
+        double delayInSeconds = 2;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            if([email  isEqual: @"myh1000@gmail.com"])
+            {
+                NSMutableDictionary *vars = [NSMutableDictionary new];
+                [vars setObject:@"Michael_Huang" forKey:@"username"];
+                
+                [self send_url_encoded_http_post_request:vars];
+            }
+    //        else if([email  isEqual: @"kevinfrans2@gmail.com"])
+    //        {
+    //            NSMutableDictionary *vars = [NSMutableDictionary new];
+    //            [vars setObject:@"Kevin_Frans" forKey:@"username"];
+    //            
+    //            [self send_url_encoded_http_post_request:vars];
+    //
+    //        }
+    //        else if([email  isEqual: @"myh1000@gmail.com"])
+    //        {
+    //            NSMutableDictionary *vars = [NSMutableDictionary new];
+    //            [vars setObject:@"Kevin_Fang" forKey:@"username"];
+    //            
+    //            [self send_url_encoded_http_post_request:vars];
+    //
+    //        }
+    //        else if([email  isEqual: @"myh1000@gmail.com"])
+    //        {
+    //            NSMutableDictionary *vars = [NSMutableDictionary new];
+    //            [vars setObject:@"Lilia_Tang" forKey:@"username"];
+    //            
+    //            [self send_url_encoded_http_post_request:vars];
+    //
+    //        }
+        });
     }
     }];
 }
@@ -156,7 +172,7 @@
 }
 
 - (void)send_url_encoded_http_post_request:(NSDictionary *)vars {
-    NSString *url_str = @"http://7ac770f8.ngrok.io/loggedin";
+    NSString *url_str = @"http://32e96d9f.ngrok.io/loggedin";
     NSMutableString *vars_str = [NSMutableString new];
     if (vars != nil && vars.count > 0) {
         BOOL first = YES;
@@ -200,7 +216,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString *responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
     NSLog(@"didfinishLoading%@",responseText);
     if([responseText isEqualToString:@"false"])
     {
@@ -215,7 +230,7 @@
     else if([responseText isEqualToString:@"true"])
     {
         NSLog(@"im in boys");
-        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"Logged In (2 of 2)"];
+        self.statusField.stringValue = [@"Status: " stringByAppendingString:@"logged in (2 of 2)"];
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
             [context setDuration:.8];
             self.largeText.animator.alphaValue = 0.0;
@@ -235,7 +250,7 @@
         }];
     }
     else {
-        [self shakeAnimation];
+        [self shakeAnimation:@"signInText"];
         double delayInSeconds = 0.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -246,9 +261,14 @@
 
 }
 
--(void)shakeAnimation {
-    NSRect textFieldFrame = [self.password frame];
-    
+-(void)shakeAnimation:(NSString *)Field {
+    NSRect textFieldFrame;
+    if ([Field isEqualToString:@"password"]) {
+        textFieldFrame = [self.password frame];
+    }
+    else if ([Field isEqualToString:@"signInText"]) {
+        textFieldFrame = [self.signInText frame];
+    }
     CGFloat centerX = textFieldFrame.origin.x;
     CGFloat centerY = textFieldFrame.origin.y;
     
