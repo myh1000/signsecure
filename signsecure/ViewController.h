@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSTextField *largeText;
 @property (weak) IBOutlet NSButton *submit;
 @property (weak) IBOutlet NSTextField *signInText;
+@property (weak) IBOutlet NSTextField *welcomeText;
 
 @end
 

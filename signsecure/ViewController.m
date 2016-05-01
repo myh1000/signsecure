@@ -29,10 +29,12 @@
 @synthesize largeText;
 @synthesize ref;
 @synthesize signInText;
+@synthesize welcomeText;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.signInText.alphaValue = 0.0;
+    self.welcomeText.alphaValue = 0.0;
     data = [[NSMutableData alloc]init];
     self.ref = [[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"];
     [ref unauth];
@@ -97,7 +99,7 @@
         }
         else {
         NSLog(@"err log");
-            [self shakeAnimation:@"password"];
+            [self shakeAnimation:self.password];
         }
     } else {
         [self getStatus];
@@ -234,11 +236,12 @@
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
             [context setDuration:.8];
             self.largeText.animator.alphaValue = 0.0;
+            self.signInText.animator.alphaValue = 0.0;
         } completionHandler:^(){
             self.largeText.stringValue = @"Welcome";
             [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
                 [context setDuration:1.2];
-                self.largeText.animator.alphaValue = 1.0;
+                self.welcomeText.animator.alphaValue = 1.0;
             } completionHandler:^() {
                 self.submit.enabled = NO;
                 self.password.enabled = NO;
@@ -250,25 +253,20 @@
         }];
     }
     else {
-        [self shakeAnimation:@"signInText"];
+        [self shakeAnimation:self.signInText];
         double delayInSeconds = 0.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            NSLog(@"resent");
+            NSLog(@"resents");
             [self submitLogin];
         });
     }
 
 }
 
--(void)shakeAnimation:(NSString *)Field {
-    NSRect textFieldFrame;
-    if ([Field isEqualToString:@"password"]) {
-        textFieldFrame = [self.password frame];
-    }
-    else if ([Field isEqualToString:@"signInText"]) {
-        textFieldFrame = [self.signInText frame];
-    }
+-(void)shakeAnimation:(NSTextField *)Field {
+    NSRect  textFieldFrame = [Field frame];
+    
     CGFloat centerX = textFieldFrame.origin.x;
     CGFloat centerY = textFieldFrame.origin.y;
     
@@ -290,35 +288,35 @@
                 [NSAnimationContext beginGrouping];
                 [[NSAnimationContext currentContext] setCompletionHandler:^{
                     
-                    [[NSAnimationContext currentContext] setDuration:0.0175];
+                    [[NSAnimationContext currentContext] setDuration:0.03];
                     [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
-                    [[self.password animator] setFrameOrigin:origin];
+                    [[Field animator] setFrameOrigin:origin];
                     
                 }];
                 
-                [[NSAnimationContext currentContext] setDuration:0.0175];
+                [[NSAnimationContext currentContext] setDuration:0.03];
                 [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
-                [[self.password animator] setFrameOrigin:two];
+                [[Field animator] setFrameOrigin:two];
                 [NSAnimationContext endGrouping];
                 
             }];
             
-            [[NSAnimationContext currentContext] setDuration:0.0175];
+            [[NSAnimationContext currentContext] setDuration:0.03];
             [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
-            [[self.password animator] setFrameOrigin:one];
+            [[Field animator] setFrameOrigin:one];
             [NSAnimationContext endGrouping];
         }];
         
-        [[NSAnimationContext currentContext] setDuration:0.0175];
+        [[NSAnimationContext currentContext] setDuration:0.03];
         [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
-        [[self.password animator] setFrameOrigin:two];
+        [[Field animator] setFrameOrigin:two];
         [NSAnimationContext endGrouping];
         
     }];
     
-    [[NSAnimationContext currentContext] setDuration:0.0175];
+    [[NSAnimationContext currentContext] setDuration:0.03];
     [[NSAnimationContext currentContext] setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
-    [[self.password animator] setFrameOrigin:one];
+    [[Field animator] setFrameOrigin:one];
     [NSAnimationContext endGrouping];
 }
 
