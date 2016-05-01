@@ -8,25 +8,31 @@
 
 #import "FeaturesViewController.h"
 
-@interface FeaturesViewController ()
+@implementation FeaturesViewController 
 
-@end
-
-@implementation FeaturesViewController
+@synthesize urlField;
+@synthesize wbv;
+@synthesize foward;
+@synthesize backward;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Presented ViewController";
+    [[wbv mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[urlField stringValue]]]];
 }
 
-
-- (IBAction)dismiss:(id)sender {
-    if (self.presentingViewController) {
-        [self.presentingViewController dismissViewController:self];
-    } else {
-        //for the 'show' transition
-        [self.view.window close];
-    }
+- (IBAction)foward:(id)sender {
+    [wbv goForward];
 }
+- (IBAction)backward:(id)sender {
+    [wbv goBack];
+}
+
+- (IBAction)submit:(id)sender {
+    [[wbv mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[urlField stringValue]]]];
+}
+
+- (IBAction)cancel:(id)sender {
+    [wbv stopLoading:sender];
+ }
 
 @end

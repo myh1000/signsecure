@@ -72,12 +72,6 @@
 
 - (IBAction)submitPressed:(id)sender {
     [self submitLogin];
-    self.submit.enabled = NO;
-    self.password.enabled = NO;
-    self.username.enabled = NO;
-    id animator = [[MyCustomAnimator alloc] init];
-    NSViewController* vc = [[NSViewController alloc] initWithNibName:@"MainMenu" bundle:nil];
-    [self presentViewController:vc animator:animator];
 }
 
 - (void)getStatus {
@@ -97,8 +91,13 @@
     
     [ref authUser:email password:[self.password stringValue] withCompletionBlock:^(NSError *error, FAuthData *authData) {
     if (error) {
+        if (ref.authData) {
+            NSLog(@"logged in already");
+        }
+        else {
         NSLog(@"err log");
         [self shakeAnimation];
+        }
     } else {
         [self getStatus];
         if([email  isEqual: @"myh1000@gmail.com"])
@@ -225,18 +224,15 @@
             [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
                 [context setDuration:1.2];
                 self.largeText.animator.alphaValue = 1.0;
-            } completionHandler:nil];
+            } completionHandler:^() {
+                self.submit.enabled = NO;
+                self.password.enabled = NO;
+                self.username.enabled = NO;
+                id animator = [[MyCustomAnimator alloc] init];
+                NSViewController* vc = [[FeaturesViewController alloc] initWithNibName:nil bundle:nil];
+                [self presentViewController:vc animator:animator];
+            }];
         }];
-        double delayInSeconds = 2.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            self.submit.enabled = NO;
-            self.password.enabled = NO;
-            self.username.enabled = NO;
-            id animator = [[MyCustomAnimator alloc] init];
-            NSViewController* vc = [[NSViewController alloc] initWithNibName:@"MainMenu" bundle:nil];
-            [self presentViewController:vc animator:animator];
-        });
     }
     else {
         [self shakeAnimation];
