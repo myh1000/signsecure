@@ -12,6 +12,11 @@
 		0006226B1CD4C6DA00EB022B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0006226A1CD4C6DA00EB022B /* ViewController.m */; };
 		0006226D1CD4C6DA00EB022B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0006226C1CD4C6DA00EB022B /* Assets.xcassets */; };
 		000622701CD4C6DA00EB022B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0006226E1CD4C6DA00EB022B /* Main.storyboard */; };
+		005F25621CD59EA60085C8FA /* MyCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 005F255F1CD59EA60085C8FA /* MyCustomSegue.m */; };
+		005F25631CD59EA60085C8FA /* MyCustomAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 005F25611CD59EA60085C8FA /* MyCustomAnimator.m */; };
+		005F25661CD59F0B0085C8FA /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005F25651CD59F0B0085C8FA /* FeaturesViewController.m */; };
+		005F25681CD59F9B0085C8FA /* FeaturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005F25671CD59F9B0085C8FA /* FeaturesViewController.xib */; };
+		005F25701CD5A72E0085C8FA /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005F256F1CD5A72E0085C8FA /* MyView.m */; };
 		00FB2DD91CD561EA002C5214 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FB2DD81CD561EA002C5214 /* background.png */; };
 		00FF65F21CD505AB00913DB4 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F11CD505AB00913DB4 /* Firebase.framework */; };
 		00FF65F41CD505C200913DB4 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 00FF65F31CD505C200913DB4 /* libicucore.tbd */; };
@@ -31,6 +36,16 @@
 		0006226C1CD4C6DA00EB022B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0006226F1CD4C6DA00EB022B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		000622711CD4C6DA00EB022B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		005F255E1CD59EA60085C8FA /* MyCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomSegue.h; sourceTree = "<group>"; };
+		005F255F1CD59EA60085C8FA /* MyCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomSegue.m; sourceTree = "<group>"; };
+		005F25601CD59EA60085C8FA /* MyCustomAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomAnimator.h; sourceTree = "<group>"; };
+		005F25611CD59EA60085C8FA /* MyCustomAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomAnimator.m; sourceTree = "<group>"; };
+		005F25641CD59F0B0085C8FA /* FeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesViewController.h; sourceTree = "<group>"; };
+		005F25651CD59F0B0085C8FA /* FeaturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesViewController.m; sourceTree = "<group>"; };
+		005F25671CD59F9B0085C8FA /* FeaturesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeaturesViewController.xib; sourceTree = "<group>"; };
+		005F256D1CD5A0700085C8FA /* NSViewControllerPresentations-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSViewControllerPresentations-Bridging-Header.h"; sourceTree = "<group>"; };
+		005F256E1CD5A72E0085C8FA /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
+		005F256F1CD5A72E0085C8FA /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
 		00FB2DD81CD561EA002C5214 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		00FF65F11CD505AB00913DB4 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = signsecure/Firebase.framework; sourceTree = "<group>"; };
 		00FF65F31CD505C200913DB4 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
@@ -79,10 +94,19 @@
 				00FB2DD81CD561EA002C5214 /* background.png */,
 				000622631CD4C6DA00EB022B /* AppDelegate.h */,
 				000622641CD4C6DA00EB022B /* AppDelegate.m */,
+				005F256E1CD5A72E0085C8FA /* MyView.h */,
+				005F256F1CD5A72E0085C8FA /* MyView.m */,
+				005F255E1CD59EA60085C8FA /* MyCustomSegue.h */,
+				005F255F1CD59EA60085C8FA /* MyCustomSegue.m */,
+				005F25601CD59EA60085C8FA /* MyCustomAnimator.h */,
+				005F25611CD59EA60085C8FA /* MyCustomAnimator.m */,
 				000622691CD4C6DA00EB022B /* ViewController.h */,
 				0006226A1CD4C6DA00EB022B /* ViewController.m */,
 				0006226C1CD4C6DA00EB022B /* Assets.xcassets */,
 				0006226E1CD4C6DA00EB022B /* Main.storyboard */,
+				005F25641CD59F0B0085C8FA /* FeaturesViewController.h */,
+				005F25651CD59F0B0085C8FA /* FeaturesViewController.m */,
+				005F25671CD59F9B0085C8FA /* FeaturesViewController.xib */,
 				000622711CD4C6DA00EB022B /* Info.plist */,
 				00FF65FD1CD5062000913DB4 /* Frameworks */,
 				000622661CD4C6DA00EB022B /* Supporting Files */,
@@ -93,6 +117,7 @@
 		000622661CD4C6DA00EB022B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				005F256D1CD5A0700085C8FA /* NSViewControllerPresentations-Bridging-Header.h */,
 				000622671CD4C6DA00EB022B /* main.m */,
 			);
 			name = "Supporting Files";
@@ -171,6 +196,7 @@
 			files = (
 				0006226D1CD4C6DA00EB022B /* Assets.xcassets in Resources */,
 				00FB2DD91CD561EA002C5214 /* background.png in Resources */,
+				005F25681CD59F9B0085C8FA /* FeaturesViewController.xib in Resources */,
 				000622701CD4C6DA00EB022B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,9 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				005F25631CD59EA60085C8FA /* MyCustomAnimator.m in Sources */,
+				005F25621CD59EA60085C8FA /* MyCustomSegue.m in Sources */,
 				0006226B1CD4C6DA00EB022B /* ViewController.m in Sources */,
 				000622681CD4C6DA00EB022B /* main.m in Sources */,
 				000622651CD4C6DA00EB022B /* AppDelegate.m in Sources */,
+				005F25661CD59F0B0085C8FA /* FeaturesViewController.m in Sources */,
+				005F25701CD5A72E0085C8FA /* MyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

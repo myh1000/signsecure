@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <Firebase/Firebase.h>
 #import <QuartzCore/QuartzCore.h>
+#import "MyCustomAnimator.h"
+#import "FeaturesViewController.h"
 
 @interface ViewController ()
 {
@@ -33,22 +35,22 @@
     data = [[NSMutableData alloc]init];
     self.ref = [[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"];
     [ref unauth];
+    [self.username becomeFirstResponder];
     [self getStatus];
         // Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear {
     [super viewDidAppear];
-    [self.submit setKeyEquivalent:@"\r"];
     [self getStatus];
 }
 
 - (void)viewDidLayout{
     [super viewDidLayout];
+    self.password.enabled = YES;
+    self.username.enabled = YES;
 //    self.view.layer.backgroundColor = [NSColor colorWithRed:0.0 green:0.8 blue:0.8 alpha:1.0].CGColor;
     self.view.layer.backgroundColor = [[NSColor colorWithPatternImage:[NSImage imageNamed:@"background.png"]]CGColor];
-    [self.username becomeFirstResponder];
-    self.largeText.alphaValue = 0.0;
 }
 
 
@@ -58,8 +60,23 @@
     // Update the view, if already loaded.
 }
 
+- (IBAction)usernameEnter:(id)sender {
+    [self.password becomeFirstResponder];
+}
+
+- (IBAction)passwordEnter:(id)sender {
+    NSLog(@"enterrr");
+    [self submitPressed:sender];
+}
+
+
 - (IBAction)submitPressed:(id)sender {
     [self submitLogin];
+    self.password.enabled = NO;
+    self.username.enabled = NO;
+    id animator = [[MyCustomAnimator alloc] init];
+    NSViewController* vc = [[FeaturesViewController alloc] initWithNibName:nil bundle:nil];
+    [self presentViewController:vc animator:animator];
 }
 
 - (void)getStatus {
@@ -200,10 +217,14 @@
         NSLog(@"im in boys");
         self.statusField.stringValue = [@"Status: " stringByAppendingString:@"Logged In (2 of 2)"];
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-            [context setDuration:2.0];
-            self.largeText.animator.alphaValue = 1.0;
+            [context setDuration:.8];
+            self.largeText.animator.alphaValue = 0.0;
         } completionHandler:^(){
-            //Completion Code
+            self.largeText.stringValue = @"Welcome";
+            [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+                [context setDuration:1.2];
+                self.largeText.animator.alphaValue = 1.0;
+            } completionHandler:nil];
         }];
         self.submit.enabled = NO;
         double delayInSeconds = 2.0;
