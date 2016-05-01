@@ -201,15 +201,15 @@
         self.statusField.stringValue = [@"Status: " stringByAppendingString:@"Logged In (2 of 2)"];
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
             [context setDuration:2.0];
-            self.largeText.alphaValue = 1.0;
-        } completionHandler:^{
+            self.largeText.animator.alphaValue = 1.0;
+        } completionHandler:^(){
             //Completion Code
         }];
         self.submit.enabled = NO;
-        double delayInSeconds = 2.5;
+        double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"website"]];
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://google.com"]];
         NSLog(@"open secure.html");
         });
     }

@@ -707,18 +707,6 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mLc-nD-DCv">
-                                <rect key="frame" x="421" y="466" width="359" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="R34-6U-q39"/>
-                                    <constraint firstAttribute="width" constant="355" id="oaM-oj-fVL"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Welcome" id="nRF-mH-Kbx">
-                                    <font key="font" size="80" name="HelveticaNeue-Bold"/>
-                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mCU-Nw-sh5">
                                 <rect key="frame" x="693" y="365" width="77" height="32"/>
                                 <buttonCell key="cell" type="push" title="Log In" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oSr-ui-pqV">
@@ -737,6 +725,18 @@
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Status: Not Logged In (0 of 2)" id="ZNg-Lz-SIL">
                                     <font key="font" size="20" name="HelveticaNeue-Bold"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.84298458614864868" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mLc-nD-DCv">
+                                <rect key="frame" x="421" y="466" width="359" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="R34-6U-q39"/>
+                                    <constraint firstAttribute="width" constant="355" id="oaM-oj-fVL"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Welcome" id="nRF-mH-Kbx">
+                                    <font key="font" size="80" name="HelveticaNeue-Bold"/>
+                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
