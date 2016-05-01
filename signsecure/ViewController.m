@@ -72,10 +72,11 @@
 
 - (IBAction)submitPressed:(id)sender {
     [self submitLogin];
+    self.submit.enabled = NO;
     self.password.enabled = NO;
     self.username.enabled = NO;
     id animator = [[MyCustomAnimator alloc] init];
-    NSViewController* vc = [[FeaturesViewController alloc] initWithNibName:nil bundle:nil];
+    NSViewController* vc = [[NSViewController alloc] initWithNibName:@"MainMenu" bundle:nil];
     [self presentViewController:vc animator:animator];
 }
 
@@ -226,12 +227,15 @@
                 self.largeText.animator.alphaValue = 1.0;
             } completionHandler:nil];
         }];
-        self.submit.enabled = NO;
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://google.com"]];
-        NSLog(@"open secure.html");
+            self.submit.enabled = NO;
+            self.password.enabled = NO;
+            self.username.enabled = NO;
+            id animator = [[MyCustomAnimator alloc] init];
+            NSViewController* vc = [[NSViewController alloc] initWithNibName:@"MainMenu" bundle:nil];
+            [self presentViewController:vc animator:animator];
         });
     }
     else {
