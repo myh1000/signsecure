@@ -124,30 +124,30 @@
                 
                 [self send_url_encoded_http_post_request:vars];
             }
-    //        else if([email  isEqual: @"kevinfrans2@gmail.com"])
-    //        {
-    //            NSMutableDictionary *vars = [NSMutableDictionary new];
-    //            [vars setObject:@"Kevin_Frans" forKey:@"username"];
-    //            
-    //            [self send_url_encoded_http_post_request:vars];
-    //
-    //        }
-    //        else if([email  isEqual: @"myh1000@gmail.com"])
-    //        {
-    //            NSMutableDictionary *vars = [NSMutableDictionary new];
-    //            [vars setObject:@"Kevin_Fang" forKey:@"username"];
-    //            
-    //            [self send_url_encoded_http_post_request:vars];
-    //
-    //        }
-    //        else if([email  isEqual: @"myh1000@gmail.com"])
-    //        {
-    //            NSMutableDictionary *vars = [NSMutableDictionary new];
-    //            [vars setObject:@"Lilia_Tang" forKey:@"username"];
-    //            
-    //            [self send_url_encoded_http_post_request:vars];
-    //
-    //        }
+            else if([email  isEqual: @"kevinfrans2@gmail.com"])
+            {
+                NSMutableDictionary *vars = [NSMutableDictionary new];
+                [vars setObject:@"Kevin_Frans" forKey:@"username"];
+                
+                [self send_url_encoded_http_post_request:vars];
+    
+            }
+            else if([email  isEqual: @"kevkev00123@gmail.com"])
+            {
+                NSMutableDictionary *vars = [NSMutableDictionary new];
+                [vars setObject:@"Kevin_Fang" forKey:@"username"];
+                
+                [self send_url_encoded_http_post_request:vars];
+    
+            }
+            else if([email  isEqual: @"liliatangxy@gmail.com"])
+            {
+                NSMutableDictionary *vars = [NSMutableDictionary new];
+                [vars setObject:@"Lilia_Tang" forKey:@"username"];
+                
+                [self send_url_encoded_http_post_request:vars];
+    
+            }
         });
     }
     }];
