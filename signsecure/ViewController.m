@@ -15,6 +15,7 @@
 @interface ViewController ()
 {
     NSMutableData* data;
+    NSString* usernameS;
 }
 
 @property (strong, nonatomic) Firebase* ref;
@@ -120,14 +121,15 @@
             if([email  isEqual: @"myh1000@gmail.com"])
             {
                 NSMutableDictionary *vars = [NSMutableDictionary new];
-                [vars setObject:@"Michael_Huang" forKey:@"username"];
-                
+                usernameS = @"Michael_Huang";
+                [vars setObject:usernameS forKey:@"username"];
                 [self send_url_encoded_http_post_request:vars];
             }
             else if([email  isEqual: @"kevinfrans2@gmail.com"])
             {
                 NSMutableDictionary *vars = [NSMutableDictionary new];
-                [vars setObject:@"Kevin_Frans" forKey:@"username"];
+                usernameS = @"Kevin_Frans";
+                [vars setObject:usernameS forKey:@"username"];
                 
                 [self send_url_encoded_http_post_request:vars];
     
@@ -135,7 +137,8 @@
             else if([email  isEqual: @"kevkev00123@gmail.com"])
             {
                 NSMutableDictionary *vars = [NSMutableDictionary new];
-                [vars setObject:@"Kevin_Fang" forKey:@"username"];
+                usernameS = @"Kevin_Fang";
+                [vars setObject:usernameS forKey:@"username"];
                 
                 [self send_url_encoded_http_post_request:vars];
     
@@ -143,7 +146,8 @@
             else if([email  isEqual: @"liliatangxy@gmail.com"])
             {
                 NSMutableDictionary *vars = [NSMutableDictionary new];
-                [vars setObject:@"Lilia_Tang" forKey:@"username"];
+                usernameS = @"Lilia_Tang";
+                [vars setObject:usernameS forKey:@"username"];
                 
                 [self send_url_encoded_http_post_request:vars];
     
@@ -174,7 +178,7 @@
 }
 
 - (void)send_url_encoded_http_post_request:(NSDictionary *)vars {
-    NSString *url_str = @"http://32e96d9f.ngrok.io/loggedin";
+    NSString *url_str = @"http://21df99ec.ngrok.io/loggedin";
     NSMutableString *vars_str = [NSMutableString new];
     if (vars != nil && vars.count > 0) {
         BOOL first = YES;
@@ -248,6 +252,7 @@
                 self.username.enabled = NO;
                 id animator = [[MyCustomAnimator alloc] init];
                 NSViewController* vc = [[FeaturesViewController alloc] initWithNibName:nil bundle:nil];
+                [[NSUserDefaults standardUserDefaults] setObject:usernameS forKey:@"usernameS"];
                 [self presentViewController:vc animator:animator];
             }];
         }];
@@ -257,7 +262,7 @@
         double delayInSeconds = 0.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            NSLog(@"resents");
+            NSLog(@"shake");
             [self submitLogin];
         });
     }

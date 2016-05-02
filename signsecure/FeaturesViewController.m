@@ -8,7 +8,7 @@
 
 #import "FeaturesViewController.h"
 
-@implementation FeaturesViewController 
+@implementation FeaturesViewController
 
 @synthesize urlField;
 @synthesize wbv;
@@ -17,7 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[wbv mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[urlField stringValue]]]];
+    NSString* url = [NSString stringWithFormat:@"%@?name=%@",[urlField stringValue],[[NSUserDefaults standardUserDefaults] stringForKey:@"usernameS"]];
+    [[wbv mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+    urlField.stringValue = url;
 }
 
 - (IBAction)foward:(id)sender {

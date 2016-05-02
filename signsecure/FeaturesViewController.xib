@@ -18,11 +18,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY" customClass="MyView">
-            <rect key="frame" x="0.0" y="0.0" width="1300" height="800"/>
+            <rect key="frame" x="0.0" y="0.0" width="1500" height="800"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JnA-0z-jll">
-                    <rect key="frame" x="1217" y="752" width="69" height="32"/>
+                    <rect key="frame" x="1417" y="752" width="69" height="32"/>
                     <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8xt-QP-3Fj">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -31,18 +31,14 @@
                         <action selector="cancel:" target="-2" id="vtf-2p-xC1"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rZC-It-VaC">
-                    <rect key="frame" x="1103" y="752" width="83" height="32"/>
-                    <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LaM-53-iX9">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="submit:" target="-2" id="wKB-Cr-1NO"/>
-                    </connections>
-                </button>
+                <webView translatesAutoresizingMaskIntoConstraints="NO" id="pK4-ow-2ni">
+                    <rect key="frame" x="0.0" y="0.0" width="1500" height="739"/>
+                    <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
+                        <nil key="identifier"/>
+                    </webPreferences>
+                </webView>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wwe-zR-itC">
-                    <rect key="frame" x="108" y="758" width="993" height="22"/>
+                    <rect key="frame" x="111" y="758" width="1193" height="22"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" title="http://signsignature.co:8080/static/secure.html" drawsBackground="YES" id="Hdg-IE-Ztw">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -72,12 +68,16 @@
                         <action selector="foward:" target="-2" id="b5W-yI-Wjv"/>
                     </connections>
                 </button>
-                <webView translatesAutoresizingMaskIntoConstraints="NO" id="pK4-ow-2ni">
-                    <rect key="frame" x="0.0" y="0.0" width="1300" height="739"/>
-                    <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
-                        <nil key="identifier"/>
-                    </webPreferences>
-                </webView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rZC-It-VaC">
+                    <rect key="frame" x="1307" y="752" width="83" height="32"/>
+                    <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LaM-53-iX9">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="submit:" target="-2" id="wKB-Cr-1NO"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="JnA-0z-jll" secondAttribute="trailing" constant="20" id="2do-Kn-3zv"/>
@@ -85,13 +85,13 @@
                 <constraint firstItem="0hK-J7-PSd" firstAttribute="top" secondItem="wwe-zR-itC" secondAttribute="top" id="Dsh-It-zkS"/>
                 <constraint firstItem="HhK-tR-KFG" firstAttribute="baseline" secondItem="0hK-J7-PSd" secondAttribute="baseline" id="Gp1-yR-GjW"/>
                 <constraint firstItem="pK4-ow-2ni" firstAttribute="top" secondItem="HhK-tR-KFG" secondAttribute="bottom" constant="20" symbolic="YES" id="JyJ-MH-Z4p"/>
-                <constraint firstItem="JnA-0z-jll" firstAttribute="leading" secondItem="rZC-It-VaC" secondAttribute="trailing" constant="43" id="LcV-HK-dKS"/>
+                <constraint firstItem="JnA-0z-jll" firstAttribute="leading" secondItem="rZC-It-VaC" secondAttribute="trailing" constant="39" id="LcV-HK-dKS"/>
                 <constraint firstItem="0hK-J7-PSd" firstAttribute="baseline" secondItem="rZC-It-VaC" secondAttribute="baseline" id="Wqa-tZ-veL"/>
                 <constraint firstItem="HhK-tR-KFG" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="Z7V-Aj-zCq"/>
-                <constraint firstItem="wwe-zR-itC" firstAttribute="leading" secondItem="0hK-J7-PSd" secondAttribute="trailing" constant="8" id="ZSa-Sb-XOG"/>
+                <constraint firstItem="wwe-zR-itC" firstAttribute="leading" secondItem="0hK-J7-PSd" secondAttribute="trailing" constant="11" id="ZSa-Sb-XOG"/>
                 <constraint firstAttribute="bottom" secondItem="pK4-ow-2ni" secondAttribute="bottom" id="fh3-5k-krt"/>
                 <constraint firstItem="rZC-It-VaC" firstAttribute="baseline" secondItem="JnA-0z-jll" secondAttribute="baseline" id="ikX-ca-R6c"/>
-                <constraint firstItem="rZC-It-VaC" firstAttribute="leading" secondItem="wwe-zR-itC" secondAttribute="trailing" constant="8" id="pjc-ql-VS5"/>
+                <constraint firstItem="rZC-It-VaC" firstAttribute="leading" secondItem="wwe-zR-itC" secondAttribute="trailing" constant="9" id="pjc-ql-VS5"/>
                 <constraint firstItem="0hK-J7-PSd" firstAttribute="leading" secondItem="HhK-tR-KFG" secondAttribute="trailing" constant="9" id="qQP-ag-twd"/>
                 <constraint firstItem="pK4-ow-2ni" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="t9y-2l-FfF"/>
                 <constraint firstItem="HhK-tR-KFG" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="17" id="wo2-ih-yP1"/>
