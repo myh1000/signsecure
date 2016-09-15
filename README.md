@@ -1,7 +1,7 @@
 # signsecure
 
-![](gallery.jpeg)
-
-## LA Hacks 2016 
+## LA Hacks 2016
 
 #### Best Security Hack
+
+![](gallery.jpeg)
